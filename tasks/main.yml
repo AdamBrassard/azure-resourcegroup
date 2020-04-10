@@ -1,0 +1,3 @@
+---
+# tasks file for azure-resourcegroup
+- import_tasks: azure-resourcegroup.yml

@@ -1,0 +1,6 @@
+---
+- name: Create/Manage a resource group
+  azure_rm_resourcegroup:
+    name: "{{ resource_group }}"
+    location: "{{ location | default(omit,true) }}"
+    state: "{{ rg_state | default(omit,true) }}"
