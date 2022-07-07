@@ -2,12 +2,11 @@ galaxy_info:
   author: Adam Brassard
   description: Creating Azure Resource Group
   company: Brassard INC
-
+  github_branch: main
   license: MIT
 
-  min_ansible_version: 2.7
-  github_branch: main
- 
+  min_ansible_version: 2.9
+
   cloud_platforms:
     - azure
 
