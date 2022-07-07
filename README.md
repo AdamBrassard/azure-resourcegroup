@@ -6,19 +6,27 @@ Use this role to create, update, delete a resource group in Azure
 Requirements
 ------------
 
-ansible >=2.7.0
-Requires Azure_rm Modules
+ansible >=2.9.0
 
-[Azure Account information]('https://docs.ansible.com/ansible/latest/scenario_guides/guide_azure.html')
-[Azure Resource module options]('https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html')
+**Install the Azure Collection from Galaxy:**
+```
+ansible-galaxy collection install azure.azcollection
+```
+**Install the Python requirement packages from the collection**
+```
+sudo pip3 install -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements-azure.txt
+```
+
+[Azure Account information]('https://docs.ansible.com/ansible/latest/scenario_guides/guide_azure.html') \
+[Azure Resource Group module options]('https://docs.ansible.com/ansible/latest/modules/azure_rm_resourcegroup_module.html')
 
 Role Variables
 --------------
 
 ```yaml
-resource_group: #The name you want to call your RG group
-location: #the azure location of the RG
-rg_state: #Use this variable to define state absent to remove the resource group
+resource_group: # The name you want to call your RG group
+location: # The azure location of the RG
+state: # Use this variable to define state absent to remove the resource group
 ```
 
 >Note, this role will not delete a resource group that has objects in it. That function can be added
@@ -39,7 +47,7 @@ Example Playbook
   pre_tasks:
     - name: Setting desired state
       set_fact:
-#dependency Vars
+        # dependency Vars
         resource_group: test
         location: canadacentral
 
@@ -57,9 +65,9 @@ Example Playbook
   pre_tasks:
     - name: Setting desired state
       set_fact:
-#dependency Vars
+        # dependency Vars
         resource_group: test
-        rg_state: absent
+        state: absent
 
   connection: local
 
