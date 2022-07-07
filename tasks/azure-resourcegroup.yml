@@ -3,4 +3,4 @@
   azure_rm_resourcegroup:
     name: "{{ resource_group }}"
     location: "{{ location | default(omit,true) }}"
-    state: "{{ rg_state | default(omit,true) }}"
+    state: "{{ state | default('present') }}"
